@@ -9,11 +9,13 @@
 </head>
 <body>
   <div class="container">
-     <ul class="nav nav-tabs">
-        <li><%= link_to "Home", welcome_index_path %></li>
+     <ul style="text-align: right;" class="nav nav-tabs">
+       <li><%= link_to "Home", welcome_index_path %></li><li><%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %></li>
+</li>
   </ul>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 <%= yield %>
 </div>
-
 </body>
 </html>
