@@ -1,0 +1,21 @@
+<h1><center>Topics <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %></center></h1>
+  <div class="row">
+    <div class="col-md-6">
+      <% @topics.each do |topic| %>
+          <h4 class="media-heading">
+             <%= link_to topic.title, topic %>
+          </h4>
+         <div class="row">
+         <% topic.bookmarks.each do |bookmark| %>
+          <div class="col-sm-3">
+            <div class="well bookmark_box">
+              <p> <%= render partial: 'bookmarks/thumbnail', locals: { bookmark: bookmark } %> </p>
+            </div>
+          </div>
+         <% end %>
+         </div>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>

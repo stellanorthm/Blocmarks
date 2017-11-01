@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :topics do
+    resources :bookmarks
+  end
+
+  resources :bookmarks
+
   devise_for :users
+
   get 'welcome/index'
 
   root 'welcome#index'
