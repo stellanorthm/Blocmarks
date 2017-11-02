@@ -1,2 +1,3 @@
 <h1><%= @topic.title %></h1>
-<%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
+<%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure about deletion?' } %>
+<%= link_to "Add Bookmark", new_topic_bookmark_path(@topic), class: 'btn btn-success' %>
