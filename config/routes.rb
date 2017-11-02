@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'bookmarks/show'
+  get 'incoming/create'
 
-  get 'bookmarks/new'
+  resources :bookmarks
 
-  get 'bookmarks/edit'
+  post :incoming, to: 'incoming#create'
 
   resources :topics do
     resources :bookmarks
