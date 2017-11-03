@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
 
   before_filter :authenticate_user!
+  after_action :verify_authorized, :except => :index
 
   def show
     @bookmark = Bookmark.find(params[:id])
@@ -15,6 +16,7 @@ class BookmarksController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.build(bookmark_params)
     @bookmark.user = current_user
+    authorize @bookmark
 
     if @bookmark.save
       flash[:notice] = "Bookmark was created successfully."
@@ -32,6 +34,7 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
     @bookmark.assign_attributes(bookmark_params)
+    authorize @bookmark
 
 
      if @bookmark.save
@@ -45,6 +48,7 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
 
     if @bookmark.destroy
       flash[:notice] = "Bookmark was deleted."
