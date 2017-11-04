@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'likes/index'
+
   get 'incoming/create'
 
-  resources :bookmarks
+  resources :bookmarks, except: [:index] do
+     resources :likes, only: [:index, :create, :destroy]
+  end
 
   post :incoming, to: 'incoming#create'
 
