@@ -2,7 +2,7 @@
   <div class="row">
     <% @user_bookmarks.each do | bookmark | %>
     <div class="col-sm-3">
-      <div class="well bookmark_box">
+      <div>
         <%= link_to "Delete Bookmark", bookmark, method: :delete, class: 'glyphicon glyphicon-remove-circle', data: { confirm: "Are you sure you want to delete?" } %> <br>
         <%= link_to "Edit Bookmark", edit_bookmark_path(bookmark), class: 'glyphicon glyphicon-pencil' %>
       </div>
